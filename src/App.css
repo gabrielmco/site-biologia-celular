@@ -1,19 +1,26 @@
 :root {
-    --salmon: #EF9D71;
-    --black: #000;
-    --light: #fff;
-    --cyan:  #aedee0;
-    --dcyan: #141b1b;
-    --dsalmon: #1e130e;
+    --cyan: #0a222e;          /* Ciano Escuro / Azul Profundo (Substituiu o Ciano claro) */
+    --salmon: #0df2a3;        /* Verde Bioluminescente Celular fluorescente */
+    --black: #060808;         /* Obsidiana ultra-limpo de fundo */
+    --light: #f1f6f6;         /* Branco estéril clínico */
+    --dcyan: #0a222e;         /* Ciano profundo para contrastes e overlays */
+    --dsalmon: #08281d;       /* Verde profundo para contraste de texto */
+    --blue: #0a222e;          /* Azul premium para botões e destaques */
 }
 
+
+html, body {
+    max-width: 100%;
+    overflow-x: clip;
+}
 
 body {
     transition: background-color ease-out 0.5s;
 }
 
 *::selection {
-    background-color: var(--salmon);
+    background-color: var(--blue);
+    color: var(--light);
 }
 
 
@@ -40,7 +47,7 @@ body[theme="cyan"] {
 }
 
 body[theme="cyan"] .section {
-    color: var(--dcyan);
+    color: var(--light);
 }
 
 body[theme="salmon"] {
@@ -64,4 +71,46 @@ body[theme="salmon"] .section {
 @font-face {
     font-family: 'SansitaBold';
     src: url('./assets/fonts/font3.ttf');
+}
+
+.vdodiv {
+    clip-path: circle(100% at 50% 50%);
+}
+
+/* Navbar Adaptive Theme Styling */
+.navbar-container, 
+.navbar-container h1, 
+.navbar-container h4, 
+.navbar-container a, 
+.navbar-container svg {
+    transition: color 0.5s cubic-bezier(0.76, 0, 0.24, 1), stroke 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+body[theme="white"] .navbar-container,
+body[theme="white"] .navbar-container h1,
+body[theme="white"] .navbar-container h4,
+body[theme="white"] .navbar-container a {
+    color: #060808 !important;
+}
+
+body[theme="white"] .navbar-container svg {
+    stroke: #060808 !important;
+    color: #060808 !important;
+}
+
+body[theme="black"] .navbar-container,
+body[theme="black"] .navbar-container h1,
+body[theme="black"] .navbar-container h4,
+body[theme="black"] .navbar-container a,
+body[theme="cyan"] .navbar-container,
+body[theme="cyan"] .navbar-container h1,
+body[theme="cyan"] .navbar-container h4,
+body[theme="cyan"] .navbar-container a {
+    color: #f1f6f6 !important;
+}
+
+body[theme="black"] .navbar-container svg,
+body[theme="cyan"] .navbar-container svg {
+    stroke: #f1f6f6 !important;
+    color: #f1f6f6 !important;
 }

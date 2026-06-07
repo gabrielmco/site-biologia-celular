@@ -1,34 +1,25 @@
-
 import styles from './Style.module.css';
 import { LuArrowUpRight } from "react-icons/lu";
-import Button from  '../Button'
+import Button from '../Button';
 
 function Footer() {
   return (
-    <div className="section w-full sm:mt-30 ">
-      <div className="topfoot  bg-[#f5f19c] pt-16 pb-16 sm:flex items-center justify-between">
-        <div className="left sm:w-1/2 px-8 sm:px-8  ">
-          <div className="first order-1 font-[SansitaReg]  text-[6vh] leading-[7vh] sm:text-[4.2rem] w-1/3 sm:leading-[5rem] sm:mb-10 ">
-            <h1>Discover Significo.</h1>
+    <div className="section w-full mt-16 md:mt-30">
+      <div className="topfoot bg-[var(--blue)] text-white py-16 px-6 md:px-12 flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
+        <div className="left w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left px-4 md:px-0">
+          <div className="first font-[SansitaReg] text-[5vh] leading-[6vh] md:text-[4.2rem] w-full md:w-[80%] md:leading-[5rem] mb-6 md:mb-10">
+            <h1 className="whitespace-normal">Descubra a Aeterna.</h1>
           </div>
-          {/* <Bu/> */}
-          <div className='middle order-3 sm:order-2 w-[20vh] text-center mt-6 px-4 py-4 sm:w-fit sm:px-4 sm:py-[1.6vh] bg-[--black] text-[#f5f19c] whitespace-nowrap'>
-            <div 
-              className= {`${styles.masker} flex items-center 
-              gap-2 overflow-hidden 
-              relative cursor-pointer`}
-            >
-              <span 
-                className={`${styles.spanMask} font-[Sansita] 
-                text-[2.1vh] capitalize tracking-normal 
-                font-semibold `}
-              >
-                LET&apos;S GO
+          
+          <div className="middle mt-4 px-8 py-4 bg-white text-[var(--blue)] w-fit rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 pointer-events-auto cursor-pointer">
+            <div className={`${styles.masker} flex items-center gap-2 overflow-hidden relative`}>
+              <span className={`${styles.spanMask} font-[Sansita] text-[2.1vh] capitalize tracking-normal font-semibold`}>
+                VAMOS COMEÇAR
               </span>
               <LuArrowUpRight 
                 style={{
                   fontSize: "24px", 
-                  color: "#f5f19c", 
+                  color: "var(--blue)", 
                 }} 
                 className={`${styles.iconMask}`} 
               /> 
@@ -36,21 +27,19 @@ function Footer() {
           </div>
         </div>
 
-        <div className="right order-2 sm:order-3  flex sm:w-1/2 items-center justify-between sm:px-10">
-          <div className="rght1 sm:w-2/3 flex flex-col items-end px-8 mt-6">
-            <h3 className="text-[2.4vh] sm:text-[1.4rem] font-[Sansita] font-medium">
-              Find out how Significo’s people-centered
-              designs can make health technology more
-              empowering.
+        <div className="right w-full md:w-1/2 flex flex-col md:flex-row items-center justify-center md:justify-between px-4 md:px-10">
+          <div className="rght1 w-full md:w-2/3 flex flex-col items-center md:items-start mt-4 md:mt-0 text-center md:text-left">
+            <h3 className="text-lg md:text-[1.3rem] font-[Sansita] font-medium leading-relaxed opacity-90">
+              Descubra como a biotecnologia de precisão e a ciência de longevidade da Aeterna podem expandir o potencial da sua vida saudável.
             </h3>
           </div>
-          <div className="hidden sm:inline-block rght2 relative w-[150px] h-[150px]  overflow: hidden;">
-            <div className={`${styles.loopFoot} `}></div>
-            <div className="icon w-[120px] h-[120px] rounded-full border-black border-[1px] px-10 py-10 absolute top-1/2 left-1/2  -translate-y-1/2 -translate-x-1/2 overflow-hidden">
-              <div className="w-10 h-10 absolute top-1/2 left-1/2  -translate-y-1/2 -translate-x-1/2">
+          <div className="hidden md:inline-block rght2 relative w-[150px] h-[150px] overflow-hidden">
+            <div className={`${styles.loopFoot}`}></div>
+            <div className="icon w-[120px] h-[120px] rounded-full border-white border-[1px] px-10 py-10 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 overflow-hidden">
+              <div className="w-10 h-10 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
                 <svg width="100%" height="100%" viewBox="0 0 32 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 0.703124C16 9.53968 8.83656 16.7031 0 16.7031" stroke="black" strokeWidth="2"></path>
-                  <path d="M16 0.703124C16 9.53968 23.1634 16.7031 32 16.7031" stroke="black" strokeWidth="2"></path>
+                  <path d="M16 0.703124C16 9.53968 8.83656 16.7031 0 16.7031" stroke="white" strokeWidth="2"></path>
+                  <path d="M16 0.703124C16 9.53968 23.1634 16.7031 32 16.7031" stroke="white" strokeWidth="2"></path>
                   <path d="M16 0.703125L16 37.2746" stroke="currentColor" strokeWidth="2"></path>
                 </svg>
               </div>
@@ -59,36 +48,41 @@ function Footer() {
         </div>
       </div>
 
-
-      <div className="downfoot w-full h-fit bg-[var(--black)] px-8 py-10 sm:py-32">
-        <div className='flex sm:flex-row sm:items-start justify-between space-y-4 sm:space-y-0 sm:space-x-4'>
-          <div className=' hidden sm:inline-block '>
-            {["Home", "Solutions", "About", "Team", "Contact"].map((item, index) => {
+      <div className="downfoot w-full h-fit bg-[var(--black)] px-6 md:px-12 py-12 md:py-24">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-12 md:gap-4">
+          <div className="hidden md:inline-block space-y-4">
+            {["Início", "Biologia", "Ciência", "Cientistas", "Contato"].map((item, index) => {
               return (
-                <div key={index} className='pb-4'>
-                  <h3 className='font-[SansitaReg] text-[2.5vh] text-white font-semibold'>
+                <div key={index} className="pb-1 hover:text-[var(--salmon)] transition-colors duration-200 cursor-pointer">
+                  <h3 className="font-[SansitaReg] text-lg text-white/80 font-medium">
                     {item}
                   </h3>  
                 </div>
               ) 
             })}
           </div>
-          <div className=''>
-            <h1 className='text-white pb-10 font-[SansitaReg] text-[2.8vh] font-semibold'>Join our mailing list for the latest updates.</h1>
-            <div className='flex items-center gap-6'>
+          
+          <div className="w-full md:w-auto flex flex-col items-center md:items-start text-center md:text-left">
+            <h1 className="text-white pb-6 font-[SansitaReg] text-xl md:text-2xl font-semibold max-w-xl leading-snug">
+              Inscreva-se em nossa newsletter de ciência para as últimas descobertas.
+            </h1>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full mt-4">
               <input 
-                type="text" 
-                placeholder="Enter your email address" 
-                className="bg-[var(--light)] w-full sm:w-[350px] h-[5.9vh] px-4 text-[2vh]"
+                type="email" 
+                placeholder="Digite seu endereço de e-mail" 
+                className="bg-white/5 w-full md:w-[350px] h-[52px] px-6 text-sm text-white placeholder-white/40 border border-white/10 rounded-full focus:outline-none focus:border-[var(--salmon)] transition-colors duration-300"
               />
-              <Button text="SUBSCRIBE" bgColor="bg-[#f5f19c]" />
+              <div className="flex justify-center">
+                <Button text="INSCREVER-SE" bgColor="bg-[var(--blue)]" textColor="text-white" iconColor="white" />
+              </div>
             </div>
           </div>
-          <div className=' hidden sm:inline-block '>
-            {["Insights", "Newsroom", "Resources", "Careers", "Contact"].map((item, index) => {
+          
+          <div className="hidden md:inline-block space-y-4">
+            {["Pesquisas", "Sala de Imprensa", "Recursos", "Clínicas", "Contato"].map((item, index) => {
               return (
-                <div key={index} className='pb-4'>
-                  <h3 className='font-[SansitaReg] text-[2.5vh] text-white font-semibold'>
+                <div key={index} className="pb-1 hover:text-[var(--salmon)] transition-colors duration-200 cursor-pointer">
+                  <h3 className="font-[SansitaReg] text-lg text-white/80 font-medium">
                     {item}
                   </h3>  
                 </div>
@@ -101,4 +95,4 @@ function Footer() {
   )
 }
 
-export default Footer
+export default Footer;

@@ -1,48 +1,57 @@
-import img1 from '../../assets/images/review2.jpg'
-import { useEffect } from 'react';
+import img1 from '../../assets/images/review2.webp';
+import { useRef } from 'react';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-
-
 function Para2() {
-    useEffect(() => {
-        var clutter = "";
-        const para = document.querySelector(".textpara2")
-        const characters = para.textContent.split("")
-        characters.forEach(function(e) {
-           
-            clutter += `<span>${e}</span>`
-        })
-        para.innerHTML = clutter;   
-        gsap.set(".textpara2 span", {opacity: .1})
-        gsap.to(".textpara2 span", {
+    const container = useRef(null);
+
+    useGSAP(() => {
+        const para = container.current.querySelector(".textpara2");
+        if (!para) return;
+
+        // Store original text clean to avoid duplicate splitting
+        if (!para.dataset.originalText) {
+            para.dataset.originalText = para.textContent;
+        }
+
+        const originalText = para.dataset.originalText;
+        let clutter = "";
+        originalText.split("").forEach((char) => {
+            clutter += `<span>${char}</span>`;
+        });
+        para.innerHTML = clutter;
+
+        const spans = para.querySelectorAll("span");
+        gsap.set(spans, { opacity: 0.1 });
+        gsap.to(spans, {
             scrollTrigger: {
-                trigger: ".para2",
+                trigger: container.current,
                 start: "top 60%",
                 end: "bottom 90%",
-                scrub: 1,
+                scrub: true,
             },
-            opacity: 1, 
-            stagger: .03,   
-        })
-    },[]);
+            opacity: 1,
+            stagger: 0.03,
+        });
+    }, { scope: container });
+
   return (
-    <div data-color="white" className="para2 section w-full flex items-center mt-32 px-8
-    justify-center -translate-y-1/5 ">
-        <div className="text sm:w-[80%] flex flex-col items-center sm:items-end justify-center ">
-            <div className='hidden w-[40%] sm:flex items-center justify-center mb-12'>
-                <hr className='bg-zinc-400 w-[20%] h-[.3vh]' />
+    <div ref={container} data-color="white" className="para2 section w-full flex items-center justify-center px-6 md:px-8 py-12 md:py-20 md:-translate-y-1/5">
+        <div className="text w-full md:w-[80%] flex flex-col items-center justify-center">
+            <div className="hidden md:flex w-[40%] items-center justify-center mb-12">
+                <hr className="bg-zinc-400 w-[20%] h-[.3vh]" />
             </div>    
-            <h3 className='textpara2 sm:w-[40%] text-purple-600 font-[Sansita] text-[2.4vh] sm:text-[3.5vh] font-medium text-center tracking-wide leading-[5vh] mb-10'> Working with Significo and their recommendation service has been a game-changer for our occupational prevention efforts. Our customers are extremely satisfied with the tool&apos;s impressive technical capabilities and data-driven approach. But what truly sets it apart is the intuitive and modern user experience it offers, making it a breeze for our clients to navigate. By leveraging this service, our customers have successfully tackled presenteeism and absenteeism, making a significant impact on their workforce&apos;s well-being.</h3>
-            <div className="pers w-[40%] flex flex-col items-center justify-center gap-2">
-                <div className="image w-24 h-24 overflow-hidden rounded-full ">
-                    <img src={img1} />
+            <h3 className="textpara2 w-full md:w-[60%] text-zinc-800 font-[Sansita] text-lg md:text-[3.2vh] font-medium text-center tracking-wide leading-relaxed md:leading-[4.8vh] mb-10">A cooperação com a Aeterna Life e suas terapias celulares personalizadas foi um marco absoluto para nossos programas globais de medicina regenerativa preventiva. Nossos parceiros e pacientes estão profundamente satisfeitos com os resultados clínicos mensuráveis e a reversão de biomarcadores inflamatórios. A elegância com que combinam genômica e acompanhamento personalizado de estilo de vida de luxo torna o processo simples e incrivelmente eficaz.</h3>
+            <div className="pers w-full md:w-[50%] flex flex-col items-center justify-center gap-2">
+                <div className="image w-24 h-24 overflow-hidden rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
+                    <img src={img1} className="w-full h-full object-cover" alt="Dr. Emek Altun" />
                 </div>
-                <h1 className='text-[2.8vh] sm:text-[3.8vh] font-medium'>Emek Altun</h1>
-                <h3 className='text-zinc-500 text-[2.4vh] whitespace-nowrap'>CEO @ Vitaservices</h3>
+                <h1 className="text-xl md:text-[3vh] font-semibold text-zinc-900">Dr. Emek Altun</h1>
+                <h3 className="text-zinc-500 text-sm md:text-[2.2vh] text-center font-medium">Diretor Médico @ Vitaservices</h3>
             </div>
         </div>  
     </div>

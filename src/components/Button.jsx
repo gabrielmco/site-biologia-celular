@@ -4,10 +4,10 @@ import styles from './Button.module.css';
 
 import PropTypes from 'prop-types';
 
-function Button({bgColor, text}) {
+function Button({bgColor, text, textColor="text-black", iconColor="black"}) {
   return (
     <div 
-      className={`${bgColor} section w-fit sm:w-fit px-4 
+      className={`${bgColor} ${textColor} w-fit sm:w-fit px-4 
       py-[1.6vh] border-[1px] border-[--black]`}
     >
       <div 
@@ -24,7 +24,7 @@ function Button({bgColor, text}) {
         <LuArrowUpRight 
           style={{
             fontSize: "24px", 
-            color: "black", 
+            color: iconColor, 
           }} 
           className={`${styles.iconMask}`} 
         /> 
@@ -35,7 +35,9 @@ function Button({bgColor, text}) {
 
 Button.propTypes = {
   bgColor: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  textColor: PropTypes.string,
+  iconColor: PropTypes.string
 };
 
 export default Button

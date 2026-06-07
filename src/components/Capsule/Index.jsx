@@ -1,11 +1,11 @@
 import Button from "../Button";
 import {useRef} from 'react';
-import cap1 from '../../assets/images/cap1.png';
-import cap2 from '../../assets/images/cap2.jpg'
+import cap1 from '../../assets/images/cap1_new.webp';
+import cap2 from '../../assets/images/cap2.webp';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react';
-import { Power4} from 'gsap/gsap-core';
+
 gsap.registerPlugin(ScrollTrigger);
 
  function Capsule() {
@@ -14,77 +14,71 @@ gsap.registerPlugin(ScrollTrigger);
     useGSAP(() => {
         const tl = gsap.timeline({
             scrollTrigger: {
-            trigger: ".capsules",
-            start: "top 60%",
-            end: "bottom bottom",
-            scrub: .5,
+                trigger: container.current,
+                start: "top 60%",
+                end: "bottom bottom",
+                scrub: true,
             }
         });
         tl.to(".capsule:nth-child(2)", {
             y: 0,
-            marginTop:32,
-            ease: Power4
+            marginTop: 32,
+            ease: "power4.out"
         })
         tl.to(".capsule:nth-child(1)", {
             marginTop: 32,
-            ease: Power4
+            ease: "power4.out"
         })
-    }, container);
+    }, { scope: container });
 
 
   return (
-    <div data-color="white" ref={container} className="capsules  section w-full sm:h-[115vh] 
-        sm:overflow-hidden mb-32 sm:flex items-start sm:justify-between mt-32 sm:mt-60 px-8 gap-40  "
+    <div data-color="white" ref={container} className="capsules section w-full md:h-auto md:min-h-[125vh] 
+        md:overflow-visible mb-32 flex flex-col md:flex-row items-start md:justify-between mt-16 md:mt-48 px-6 md:px-8 gap-10 md:gap-40 pb-20"
     >
-        <div className="left sm:w-1/3 h-full flex flex-col sm:justify-between py-10 items-start " >
-            <h1 className="w-2/3 font-[Sansita] text-[2.8vh] leading-[4vh] font-medium">
-                Stay up-to-date on the
-                latest healthcare
-                innovations and thought
-                leadership.
+        <div className="left w-full md:w-1/3 h-full flex flex-col md:justify-between py-10 items-start" >
+            <h1 className="w-full md:w-2/3 font-[Sansita] text-[2.2vh] md:text-[2.8vh] leading-relaxed md:leading-[4vh] font-medium text-zinc-800">
+                Mantenha-se atualizado sobre as últimas fronteiras da biotecnologia e reprogramação celular.
             </h1>
-            <div className="heading">
-                <h1 className="font-[SansitaReg] text-[5vh] leading-[6.5vh] sm:text-[8vh] py-5 sm:leading-[9vh]">Explore <br/> Our Insights</h1>
-                <Button bgColor="bg-[#f5f19c]" text="VIEW ALL ARTICLES" />
+            <div className="heading mt-6 md:mt-0">
+                <h1 className="font-[SansitaReg] text-[5vh] leading-[6vh] md:text-[8vh] py-3 md:py-5 md:leading-[9vh]">Explore <br className="hidden md:block"/> Nossa Ciência</h1>
+                <Button bgColor="bg-[var(--blue)]" text="VER TODOS OS ARTIGOS" textColor="text-white" iconColor="white" />
             </div>
         </div>
-        <div className=" right font-[SansitaReg] mt-10 sm:w-2/3 space-y-10 h-full sm:flex items-start justify-start sm:gap-20  ">
+        <div className="right w-full font-[SansitaReg] mt-10 md:w-2/3 space-y-12 md:space-y-0 h-full flex flex-col md:flex-row items-start justify-start md:gap-20">
             {/* 1st capsule */}
             <div   
-                className="capsule flex flex-col items-center gap-4 p-6 sm:-rotate-[16deg] sm:translate-y-10
-                rounded-full border-[1px] border-black">
-                <div className="image w-[74vw] h-[74vw] sm:w-[40vh] sm:h-[40vh]  rounded-full overflow-hidden">
-                    <img className="h-full w-full object-cover" src={cap1} />
+                className="capsule flex flex-col items-center gap-4 p-6 md:p-12 md:-rotate-[16deg] md:-translate-y-40
+                rounded-3xl md:rounded-full border border-black/15 bg-black/[0.01] max-w-full md:max-w-md shadow-sm">
+                <div className="image w-[74vw] h-[74vw] md:w-[40vh] md:h-[40vh] rounded-full overflow-hidden shadow-inner">
+                    <img className="h-full w-full object-cover" src={cap1} alt="Fronteiras da Longevidade" />
                 </div>
-                <div className="text text-center text-[6vw] sm:text-[3.2vh] font-semibold mt-10 leading-[4.8vh]">
-                    <h3>Equity in Tech: An <br/>
-                        Internation Women&apos;s <br/> Day Conversation Wi <br/>Caroline 
-                        Nieto, <br/> Significo&apos;s CPO
+                <div className="text text-center text-lg md:text-[3.2vh] font-semibold mt-8 md:mt-10 leading-relaxed md:leading-[4.8vh] px-4 md:px-8 text-zinc-900">
+                    <h3>Reprogramação Epigenética: <br className="hidden md:block"/> Uma
+                        Conversa Exclusiva Sobre <br className="hidden md:block"/> Longevidade Celular Com <br className="hidden md:block"/> Caroline 
+                        Nieto, <br className="hidden md:block"/> Chefe de Terapias da Aeterna
                     </h3>
                 </div>
-                <button className="bg-[#e9bbff] text-black px-4 rounded-full text-medium py-3 mb-10 mt-10 font-semibold">Thought Leadership</button>
-
+                <button className="bg-[var(--blue)] text-white px-6 rounded-full text-medium py-3 mb-6 mt-6 md:mt-10 font-semibold tracking-wider text-[1.4vh] uppercase hover:bg-black transition-colors duration-300">Fronteiras da Longevidade</button>
             </div>
+            
             {/* 2nd capsule */}
             <div   
-                className="capsule flex flex-col items-center gap-4 p-6 sm:-rotate-[16deg] sm:translate-y-40
-                rounded-full border-[1px] border-black"
+                className="capsule flex flex-col items-center gap-4 p-6 md:p-12 md:-rotate-[16deg] md:translate-y-20
+                rounded-3xl md:rounded-full border border-black/15 bg-black/[0.01] max-w-full md:max-w-md shadow-sm"
             >
-                    <button className="bg-[#e9bbff] text-black px-4 rounded-full text-medium py-3 mb-6 mt-10 font-semibold">Thought Leadership</button>
-                
-                <div className="text text-center text-[3.2vh] flex flex-col gap-6 mb-6 font-semibold leading-[4.8vh]">
-                    <h3>How to Use Digital <br/>
-                        Health Interventions&apos;s <br/>to Align Employee & <br/>Organizational Goals
+                <div className="image w-[74vw] h-[74vw] md:w-[40vh] md:h-[40vh] rounded-full overflow-hidden shadow-inner">
+                    <img className="h-full w-full object-cover" src={cap2} alt="Biomarcadores de Precisão" />
+                </div>
+                <div className="text text-center text-lg md:text-[3.2vh] flex flex-col gap-4 md:gap-6 mt-8 md:mt-10 mb-6 font-semibold leading-relaxed md:leading-[4.8vh] px-4 md:px-8 text-zinc-900">
+                    <h3>Como Utilizar Biomarcadores <br className="hidden md:block"/>
+                        de Precisão para <br className="hidden md:block"/> Otimizar o Desempenho Fisiológico Humano
                     </h3>
-                    <h4 className="font-[Sansita] text-[1.9vh] font-medium leading-[2.8vh] text-zinc-500">How to use personalized digital health <br/> interventions to empower employees while <br/>
-                        achieving your organization&apos;s goals 
+                    <h4 className="font-[Sansita] text-sm md:text-[1.9vh] font-medium leading-relaxed md:leading-[2.8vh] text-zinc-500">Como usar intervenções biotecnológicas <br className="hidden md:block"/> sob medida para rejuvenescer a idade biológica celular enquanto <br className="hidden md:block"/>
+                        otimiza a vitalidade orgânica.
                     </h4>
                 </div>
-                <div className="image w-[74vw] h-[74vw] sm:w-[40vh] sm:h-[40vh]  rounded-full overflow-hidden">
-                    <img className="h-full w-full object-cover" src={cap2} />
-                </div>
-                
-
+                <button className="bg-[var(--blue)] text-white px-6 rounded-full text-medium py-3 mb-6 mt-6 md:mt-10 font-semibold tracking-wider text-[1.4vh] uppercase hover:bg-black transition-colors duration-300">Fronteiras da Longevidade</button>
             </div>
         </div>
     </div>

@@ -1,8 +1,4 @@
 
-.vdodiv {
-    clip-path: circle(100% at 50% 50%);
-}
-
 /* .links:hover .atag {
     transition: translateY(-100%);
     animation: slideAndFade 0.4s forwards;
@@ -29,10 +25,10 @@
   } */
 
 
-  .links a {
-    transition: all 0.5s;
+.links a {
+    transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-.links:hover a:nth-child(1){
-    margin-top: -1.2vw;
+.links:hover a {
+    transform: translateY(-100%);
 }
