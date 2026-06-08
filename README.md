@@ -1,5 +1,8 @@
 # Biologia Celular 🧪
 
+![Hero Screenshot](hero-screenshot.png)
+
+
 Website interativo, responsivo e de alta performance dedicado ao aprendizado e exploração da **Biologia Celular**. O projeto foi construído utilizando práticas modernas de desenvolvimento web e animações sofisticadas para criar uma jornada imersiva no estudo da célula.
 
 ---
